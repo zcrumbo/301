@@ -40,13 +40,17 @@ function addCommentToDisplay(comment){
 	}
 };
 function deleteLastComment(lastIndex){
-	list.removeChild(list.lastChild);
-	formData.name.pop();
-	formData.comments.pop();
-	localStorage.comments = JSON.stringify(formData);
+	if(list.lastChild){
+		list.removeChild(list.lastChild);
+		//remove last comment from formData array
+		formData.name.pop();
+		formData.comments.pop();
+		//overwrite new comments array to local storage
+		localStorage.comments = JSON.stringify(formData);
+	}
 }
 
-//event listener
+//event listeners
 form.addEventListener("submit", processForm);	
 deleteButton.addEventListener("click", deleteLastComment)
 addCommentToDisplay();
