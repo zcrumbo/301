@@ -39,7 +39,7 @@ function addCommentToDisplay(comment){
 		}
 	}
 };
-function deleteLastComment(lastIndex){
+function deleteLastComment(){
 	if(list.lastChild){
 		list.removeChild(list.lastChild);
 		//remove last comment from formData array
